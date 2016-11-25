@@ -1,5 +1,8 @@
+from .config import username, password
+
+
 def values():
     return {
-        'username': 'robertfialek',
-        'password': 'freelancerAbcd123$',
+        'username': username,
+        'password': password,
     }

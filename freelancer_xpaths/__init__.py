@@ -9,7 +9,7 @@ def login():
         'login_button': '//button[@id="login_btn"]'
     }
 
-# TODO
+# TODO why?
 def search_results():   # res = freelancer_projects.parse_search(driver, freelancer_xpaths.search_results())
     html = requests.get('https://www.freelancer.com/jobs/myskills/1/')
     print(html)
