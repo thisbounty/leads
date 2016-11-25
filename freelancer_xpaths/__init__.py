@@ -1,4 +1,4 @@
-def freelancer_xpaths():
+def login():
     return {
         'username':"//input[@name='username']",
     }

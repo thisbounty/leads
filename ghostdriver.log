@@ -1,0 +1,38 @@
+[INFO  - 2016-11-25T16:08:35.752Z] GhostDriver - Main - running on port 36435
+[INFO  - 2016-11-25T16:08:36.896Z] Session [6c088eb0-b329-11e6-8c7a-f3b5f0061283] - page.settings - {"XSSAuditingEnabled":false,"javascriptCanCloseWindows":true,"javascriptCanOpenWindows":true,"javascriptEnabled":true,"loadImages":true,"localToRemoteUrlAccessEnabled":false,"userAgent":"Mozilla/5.0 (Unknown; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) PhantomJS/2.1.1 Safari/538.1","webSecurityEnabled":true}
+[INFO  - 2016-11-25T16:08:36.896Z] Session [6c088eb0-b329-11e6-8c7a-f3b5f0061283] - page.customHeaders:  - {}
+[INFO  - 2016-11-25T16:08:36.896Z] Session [6c088eb0-b329-11e6-8c7a-f3b5f0061283] - Session.negotiatedCapabilities - {"browserName":"phantomjs","version":"2.1.1","driverName":"ghostdriver","driverVersion":"1.2.0","platform":"linux-unknown-64bit","javascriptEnabled":true,"takesScreenshot":true,"handlesAlerts":false,"databaseEnabled":false,"locationContextEnabled":false,"applicationCacheEnabled":false,"browserConnectionEnabled":false,"cssSelectorsEnabled":true,"webStorageEnabled":false,"rotatable":false,"acceptSslCerts":false,"nativeEvents":true,"proxy":{"proxyType":"direct"}}
+[INFO  - 2016-11-25T16:08:36.897Z] SessionManagerReqHand - _postNewSessionCommand - New Session Created: 6c088eb0-b329-11e6-8c7a-f3b5f0061283
+[ERROR - 2016-11-25T16:08:46.558Z] Session [6c088eb0-b329-11e6-8c7a-f3b5f0061283] - page.onError - msg: Unhandled Promise rejection: undefined is not an object (evaluating 't[1].vars.budgets') ; Zone: <root> ; Task: Promise.then ; Value: TypeError: undefined is not an object (evaluating 't[1].vars.budgets') https://www.f-cdn.com/bundles/modules/homepage-one-click-post-project-011781de.js:2:43282
+invoke@https://www.f-cdn.com/polyfills-3d89c31b.js:3:37599
+run@https://www.f-cdn.com/polyfills-3d89c31b.js:3:32092
+https://www.f-cdn.com/polyfills-3d89c31b.js:3:19650
+invokeTask@https://www.f-cdn.com/polyfills-3d89c31b.js:3:38228
+runTask@https://www.f-cdn.com/polyfills-3d89c31b.js:3:32698
+i@https://www.f-cdn.com/polyfills-3d89c31b.js:3:18742
+u@https://www.f-cdn.com/polyfills-3d89c31b.js:2:16272
+https://www.f-cdn.com/polyfills-3d89c31b.js:2:16394
+s@https://www.f-cdn.com/polyfills-3d89c31b.js:2:12823
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-11-25T16:08:46.559Z] Session [6c088eb0-b329-11e6-8c7a-f3b5f0061283] - page.onError - stack:
+  o (https://www.f-cdn.com/polyfills-3d89c31b.js:3)
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-11-25T16:08:46.559Z] Session [6c088eb0-b329-11e6-8c7a-f3b5f0061283] - page.onError - msg: Error: Uncaught (in promise): TypeError: undefined is not an object (evaluating 't[1].vars.budgets')
+https://www.f-cdn.com/bundles/modules/homepage-one-click-post-project-011781de.js:2:43282
+invoke@https://www.f-cdn.com/polyfills-3d89c31b.js:3:37599
+run@https://www.f-cdn.com/polyfills-3d89c31b.js:3:32092
+https://www.f-cdn.com/polyfills-3d89c31b.js:3:19650
+invokeTask@https://www.f-cdn.com/polyfills-3d89c31b.js:3:38228
+runTask@https://www.f-cdn.com/polyfills-3d89c31b.js:3:32698
+i@https://www.f-cdn.com/polyfills-3d89c31b.js:3:18742
+u@https://www.f-cdn.com/polyfills-3d89c31b.js:2:16272
+https://www.f-cdn.com/polyfills-3d89c31b.js:2:16394
+s@https://www.f-cdn.com/polyfills-3d89c31b.js:2:12823
+
+  phantomjs://platform/console++.js:263 in error
+[ERROR - 2016-11-25T16:08:46.559Z] Session [6c088eb0-b329-11e6-8c7a-f3b5f0061283] - page.onError - stack:
+  o (https://www.f-cdn.com/polyfills-3d89c31b.js:3)
+
+  phantomjs://platform/console++.js:263 in error
