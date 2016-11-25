@@ -1,3 +1,6 @@
 spider
 config.py
 *.pyc
+*.idea
+ghostdriver.log
+geckodriver.log

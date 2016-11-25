@@ -1,5 +1,5 @@
 def values():
-    return  {
-        'username':'',
-        'password':'',
+    return {
+        'username': 'robertfialek',
+        'password': 'freelancerAbcd123$',
     }
