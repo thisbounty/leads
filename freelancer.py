@@ -21,13 +21,8 @@ res = freelancer_projects.parse_search(driver, freelancer_xpaths.search_results(
 
 freelancer_projects.job_details(driver)
 
-#driver.quit()
+driver.quit()
 
 
-# TODO: and scrape url, title, description, skills
 # TODO: then the values that come up in a form when you click place a bid time and amount
 
-# if __name__ == '__main__':
-#     # gather()
-#     #read_details()
-#     pass
