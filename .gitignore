@@ -4,3 +4,9 @@ config.py
 *.idea
 ghostdriver.log
 geckodriver.log
+bin
+include
+lib
+pip-selfcheck.json
+selenium
+config/
