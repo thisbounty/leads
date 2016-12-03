@@ -1,5 +1,4 @@
 spider
-config.py
 *.pyc
 *.idea
 ghostdriver.log
@@ -9,7 +8,6 @@ include
 lib
 pip-selfcheck.json
 selenium
-config/
 jobs_file.txt
 url_list.txt
 screen*
