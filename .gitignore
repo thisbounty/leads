@@ -10,3 +10,6 @@ lib
 pip-selfcheck.json
 selenium
 config/
+jobs_file.txt
+url_list.txt
+screen*

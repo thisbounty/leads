@@ -9,7 +9,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 
 # def gather():
 # Login
-driver = webdriver.Firefox()
+driver = webdriver.PhantomJS()
 freelancer_login.user_login(driver, freelancer_xpaths.login())
 
 # go to search results page for projects with my skills
