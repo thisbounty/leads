@@ -38,17 +38,17 @@ def job_details(driver):
             title = driver.find_elements_by_xpath("//h1[@class='project_name largest bold margin-b5 span12']")[0].text
             description = [i.text for i in driver.find_elements_by_xpath("//h2[@class='project-brief-subheading bold margin-b5']/following-sibling::p")]
             skills = [i.text for i in driver.find_elements_by_xpath("//a[@class='skills-required']")]
+            price = driver.find_elements_by_xpath("//div[contains(@class, 'project-budget')]")[0].text
             #tab.append({'title': title, 'description': description, 'url': url.strip(), 'skills': skills})
-            s = title+', '+''.join(description)+', '+''.join(skills)+', '+url+'\n'
-            jobs_file.write(s)
+            job_write_file(title, description, skills, url, price, jobs_file)
 
         jobs_file.close()
         return tab
 
-def job_write_file(title, description, skills, url, jobs_file=False):
+def job_write_file(title, description, skills, url, price, jobs_file=False):
     if(jobs_file == False):
         jobs_file = open('jobs_file.txt', 'w')
-    s = title+', '+''.join(description)+', '+''.join(skills)+', '+url+'\n'
+    s = price.encode('utf-8').strip()+', '+title.encode('utf-8').strip()+', '+''.join(description).encode('utf-8').strip()+', '+''.join(skills).encode('utf-8').strip()+', '+url.encode('utf-8').strip()+'\n'
     jobs_file.write(s)
     if(jobs_file == False):
         jobs_file.close()
