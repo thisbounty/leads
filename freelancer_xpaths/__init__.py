@@ -13,6 +13,6 @@ def search_results(driver):
 
     # it is just near after what we are looking for:
     WebDriverWait(driver, 15).until(lambda driver: driver.find_element_by_class_name("ProjectTable-description"))
-    z = driver.find_elements_by_xpath("//a[contains(@href, 'https://www.freelancer.com/projects/')]")
-
-    return [i.get_property('href') for i in z]
+    driver.save_screenshot('screen2.png')
+    z = driver.find_elements_by_xpath("//h2[@class='ProjectTable-title']/a")
+    return [i.get_attribute('href') for i in z]
