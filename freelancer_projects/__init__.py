@@ -1,5 +1,6 @@
 from selenium.webdriver.support.ui import WebDriverWait
-
+import requests
+import config
 
 def my_skills(driver):
     print('my skills')
@@ -24,8 +25,9 @@ def parse_search(driver, search_results):    # res = freelancer_projects.parse_s
 def job_details(driver):
     print('job details')
     tab = []
-    jobs_file = open('jobs_file.txt', 'w')
     with open('url_list.txt', 'r') as url_list:
+        rest=config.rest_values()
+        print(rest)
         for url in url_list:
             driver.get(url)
             driver.save_screenshot('job_details.png')
@@ -40,9 +42,7 @@ def job_details(driver):
             skills = [i.text for i in driver.find_elements_by_xpath("//a[@class='skills-required']")]
             price = driver.find_elements_by_xpath("//div[contains(@class, 'project-budget')]")[0].text
             #tab.append({'title': title, 'description': description, 'url': url.strip(), 'skills': skills})
-            job_write_file(title, description, skills, url, price, jobs_file)
-
-        jobs_file.close()
+            job_rest(title, description, skills, url, price, rest['endpoint']+'/leads/', rest['success_response'])
         return tab
 
 def job_write_file(title, description, skills, url, price, jobs_file=False):
@@ -52,3 +52,16 @@ def job_write_file(title, description, skills, url, price, jobs_file=False):
     jobs_file.write(s)
     if(jobs_file == False):
         jobs_file.close()
+
+def job_rest(title, description, skills, url, price, endpoint, success_response=False):
+    payload = {
+        'title': title,
+        'description': description,
+        'skills': skills,
+        'url': url,
+        'price': price
+    }
+    r = requests.post(endpoint, data=payload)
+    if(r.text is not success_response and success_response is not False):
+        print(r.text)
+        raise AssertionError('No success response from REST endpoint. Stopped harvesting under belief results are not recorded')
