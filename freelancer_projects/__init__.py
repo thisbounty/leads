@@ -1,6 +1,7 @@
 from selenium.webdriver.support.ui import WebDriverWait
 import requests
 import config
+import json
 
 def my_skills(driver):
     print('my skills')
@@ -38,11 +39,11 @@ def job_details(driver):
                 driver.save_screenshot(url+'.png')
                 continue
             title = driver.find_elements_by_xpath("//h1[@class='project_name largest bold margin-b5 span12']")[0].text
-            description = [i.text for i in driver.find_elements_by_xpath("//h2[@class='project-brief-subheading bold margin-b5']/following-sibling::p")]
-            skills = [i.text for i in driver.find_elements_by_xpath("//a[@class='skills-required']")]
+            description = [i.text for i in driver.find_elements_by_xpath("//h2[@class='project-brief-subheading bold margin-b5']/following-sibling::p")][0]
+            skills = [i.text for i in driver.find_elements_by_xpath("//a[@class='skills-required']")][0]
             price = driver.find_elements_by_xpath("//div[contains(@class, 'project-budget')]")[0].text
             #tab.append({'title': title, 'description': description, 'url': url.strip(), 'skills': skills})
-            job_rest(title, description, skills, url, price, rest['endpoint']+'/leads/', rest['success_response'])
+            job_rest(title, description, skills, url, price, rest['endpoint']+'/leads/')
         return tab
 
 def job_write_file(title, description, skills, url, price, jobs_file=False):
@@ -53,7 +54,7 @@ def job_write_file(title, description, skills, url, price, jobs_file=False):
     if(jobs_file == False):
         jobs_file.close()
 
-def job_rest(title, description, skills, url, price, endpoint, success_response=False):
+def job_rest(title, description, skills, url, price, endpoint):
     payload = {
         'title': title,
         'description': description,
@@ -61,7 +62,7 @@ def job_rest(title, description, skills, url, price, endpoint, success_response=
         'url': url,
         'price': price
     }
-    r = requests.post(endpoint, data=payload)
-    if(r.text is not success_response and success_response is not False):
-        print(r.text)
+    print(requests.post(endpoint, data=payload).text)
+    r = json.loads(requests.post(endpoint, data=payload).text)
+    if(len(r['title']) <= 0):
         raise AssertionError('No success response from REST endpoint. Stopped harvesting under belief results are not recorded')

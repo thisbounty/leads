@@ -9,5 +9,4 @@ def values():
 def rest_values():
     return {
         'endpoint': os.environ['leads_read_url'],
-        'success_response': os.environ['leads_read_success_response'],
     }
