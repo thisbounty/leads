@@ -30,6 +30,8 @@ def job_details(driver):
         rest=config.rest_values()
         print(rest)
         for url in url_list:
+            if(len(url)<5):
+                continue;
             driver.get(url)
             driver.save_screenshot('job_details.png')
             try:
@@ -62,7 +64,8 @@ def job_rest(title, description, skills, url, price, endpoint):
         'url': url,
         'price': price
     }
-    print(requests.post(endpoint, data=payload).text)
-    r = json.loads(requests.post(endpoint, data=payload).text)
+    r = requests.post(endpoint, data=payload).text
+    print(r)
+    r = json.loads(r)
     if(len(r['title']) <= 0):
         raise AssertionError('No success response from REST endpoint. Stopped harvesting under belief results are not recorded')
